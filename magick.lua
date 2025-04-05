@@ -54,8 +54,9 @@ function Image(elem)
   if is_img(ext) then
     return elem
   else
+    local mime, data = pandoc.mediabag.fetch(elem.src)
+    local img = pandoc.pipe("magick", { "-", ftype .. ":-" }, data)
     local fname = GetFileName(elem.src) .. "." .. ftype
-    local img = pandoc.pipe("magick", { elem.src, ftype .. ":-" }, "")
     pandoc.mediabag.insert(fname, mimetype, img)
     return pandoc.Image(elem.caption, fname, elem.title, elem.attr)
   end
