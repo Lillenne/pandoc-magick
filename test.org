@@ -4,6 +4,6 @@
 :END:
 My image
 
-[[./media/test.png]]
+[[./media/test.webp]]
 
 after
