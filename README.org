@@ -1,0 +1,7 @@
+#+title: Readme
+
+A [[https://pandoc.org/lua-filters.html][pandoc lua-filter]] to automatically convert images to a desired file type using [[https://imagemagick.org][imagemagick]].
+
+#+begin_src shell
+pandoc --lua-filter=magick.lua --extract-media <media directory> -o <outfile> <infile>
+#+end_src
