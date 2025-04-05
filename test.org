@@ -1,0 +1,9 @@
+* Hello
+:PROPERTIES:
+:CUSTOM_ID: hello
+:END:
+My image
+
+[[./media/test.png]]
+
+after
