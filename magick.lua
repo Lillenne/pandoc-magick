@@ -6,8 +6,6 @@ local ftype = "png"
 local mimetype = "image/png"
 local tostr = os.getenv("PANDOC_MAGICK_TO_EXT")
 local tomime = os.getenv("PANDOC_MAGICK_TO_MIME")
-print(tostr)
-print(tomime)
 if (not NullOrEmpty(tostr) and not NullOrEmpty(tomime)) then
   ftype = tostr
   mimetype = tomime
@@ -59,6 +57,6 @@ function Image(elem)
     local fname = GetFileName(elem.src) .. "." .. ftype
     local img = pandoc.pipe("magick", { elem.src, ftype .. ":-" }, "")
     pandoc.mediabag.insert(fname, mimetype, img)
-    return pandoc.Image({}, fname)
+    return pandoc.Image(elem.caption, fname, elem.title, elem.attr)
   end
 end
